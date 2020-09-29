@@ -23,7 +23,7 @@ export class InputTextFieldCreator extends Component{
 
   handleSubmit(e){
     e.preventDefault();
-    this.setState({type: this.props.type, uiid: `${this.state.label}${(new Date().getTime)()}`} , ()=> {
+    this.setState({type: this.props.type, uiid: `${this.state.label}${new Date().getTime()}`} , ()=> {
       this.props.addField(this.state)
       this.setState(initState)
     }) 

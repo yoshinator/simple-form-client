@@ -48,7 +48,7 @@ export class AppContainer extends Component {
 
   removeField(uiid){
     const filtered = this.state.formFields.filter(field => {
-      return field.uuid !== uiid
+      return field.uiid !== uiid
     })
 
     this.setState({formFields: filtered})

@@ -9,7 +9,7 @@ const initState = {
   type: "dropdown",
   simple: true,
   options: [],
-  uuid: ""
+  uiid: ""
 }
 
 export class DropDownCreator extends Component {
@@ -34,7 +34,7 @@ export class DropDownCreator extends Component {
 
   handleSubmit(e){
     e.preventDefault()
-    this.setState({ uuid: `${this.state.label}${new Date().getTime()}` }, ()=> {
+    this.setState({ uiid: `${this.state.label}${new Date().getTime()}` }, ()=> {
       this.props.addField(this.state)
       this.setState(initState)
     });
@@ -47,7 +47,7 @@ export class DropDownCreator extends Component {
         {
           value: this.state.value,
           displayValue: this.state.displayValue,
-          uuid: `${this.state.label}${(new Date().getTime)()}`,
+          uiid: `${this.state.label}${(new Date().getTime)()}`,
         },
       ],
       value: "",
@@ -57,7 +57,7 @@ export class DropDownCreator extends Component {
 
   options() {
     return <select>{this.state.options.map(opt => {
-      return  <option key={opt.uuid} value={opt.value}>{opt.displayValue}</option>
+      return  <option key={opt.uiid} value={opt.value}>{opt.displayValue}</option>
     })
     }
     </select>

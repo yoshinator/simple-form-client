@@ -10,7 +10,7 @@ const initState = {
   options: [],
   class: "",
   type: "checkbox",
-  uuid: "",
+  uiid: "",
   simple: true
 };
 
@@ -35,8 +35,7 @@ export class CheckBoxCreator extends Component {
   }
   handleSubmit(e){
     e.preventDefault();
-    console.log("IN HANDLE SUBMIT");
-    this.setState({uuid: `${this.state.category}${new Date().getTime()}`}, 
+    this.setState({uiid: `${this.state.category}${new Date().getTime()}`}, 
      () => {
        this.props.addField(this.state)
        this.setState(initState)
@@ -50,7 +49,7 @@ export class CheckBoxCreator extends Component {
         ...this.state.options, {
           value: this.state.value,
           displayValue: this.state.displayValue, 
-          uuid: `${this.state.label}${new Date().getTime()}`
+          uiid: `${this.state.label}${new Date().getTime()}`
         },
       ],
       value: "", 
@@ -61,7 +60,7 @@ export class CheckBoxCreator extends Component {
   options() {
       return this.state.options.map(option => {
         return (
-          <div key={option.uuid}>
+          <div key={option.uiid}>
             <input type="checkbox" name={this.state.category} id={option.value} value={option.value}/>
             <label htmlFor={option.value}>{option.displayValue}</label>
           </div>
