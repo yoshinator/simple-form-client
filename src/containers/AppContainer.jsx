@@ -4,6 +4,7 @@ import { InputTextFieldCreator } from '../components/InputTextFieldCreator';
 import { DropDownCreator } from '../components/DropDownCreator';
 import { DisplayFormContainer } from './DisplayFormContainer';
 import { CheckBoxCreator } from '../components/CheckBoxCreator';
+import { RadioButtonCreator } from '../components/RadioButtonCreator';
 
 export class AppContainer extends Component {
   constructor(props){
@@ -31,6 +32,9 @@ export class AppContainer extends Component {
         break;
       case "checkbox":
         this.inputState("checkbox")
+        break;
+      case "radio":
+        this.inputState("radio")
         break;
       default:  
         return;
@@ -63,6 +67,7 @@ export class AppContainer extends Component {
         {showInput && <InputTextFieldCreator addField={this.addField} type={this.state.type}/>}
         {this.state.type === "dropdown" && <DropDownCreator addField={this.addField} type={this.state.type}/>}
         {this.state.type === "checkbox" && <CheckBoxCreator addField={this.addField} type={this.state.type}/>}
+        {this.state.type === "radio" && <RadioButtonCreator addField={this.addField} type={this.state.type}/>}
       </div>
     )
   }
