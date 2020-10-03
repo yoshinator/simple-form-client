@@ -25,6 +25,22 @@ export function DisplayFormContainer(props){
     })
   }
 
+  function displayRadioButtons(field){
+    return field.options.map(opt => {
+      return (
+        <>
+          <input 
+            type="radio" 
+            name={field.category} 
+            id={opt.displayValue.toLowerCase()} 
+            value={opt.value} 
+            key={opt.uuid}/>
+        <label htmlFor={opt.displayValue.toLowerCase()}>{opt.displayValue}</label>
+        </>
+      )
+    })
+  }
+
   function displayFields(){
     return props.fields.map((field, i) => {
       if(field.type === "input"){
@@ -68,8 +84,15 @@ export function DisplayFormContainer(props){
             <span onClick={() => props.removeField(field.uiid)}>X</span>
           </div>
         );
+      }else if (field.type === "radio"){
+        return (
+          <div uiid={field.uiid} className={field.class}>
+            <p>{field.question}</p>
+            {displayRadioButtons(field)}
+            <span onClick={() => props.removeField(field.uiid)}>X</span>
+          </div>
+        )
       }
-      
       else {
         return null
       }
