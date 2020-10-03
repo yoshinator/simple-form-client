@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { DisplayFormContainer } from './DisplayFormContainer';
+import { WelcomeContainer } from './WelcomeContainer';
 import {AddField} from '../components/AddField';
 import { InputTextFieldCreator } from '../components/field_creators/InputTextFieldCreator';
 import { DropDownCreator } from '../components/field_creators/DropDownCreator';
@@ -11,6 +12,7 @@ export class AppContainer extends Component {
     super(props)
     this.state = {
       formFields: [],
+      ready: false,
       type: "input"
     }
     this.handleChange = this.handleChange.bind(this);
@@ -39,7 +41,6 @@ export class AppContainer extends Component {
       default:  
         return;
     }
-
   }
 
   inputState(inputType){
@@ -60,7 +61,8 @@ export class AppContainer extends Component {
 
   render() {
     let showInput = this.state.type === "input" || this.state.type === "text" ? true : false
-    return (
+    return this.state.ready ? 
+     (
       <div>
         <DisplayFormContainer key={(new Date().getTime())} fields={this.state.formFields} removeField={this.removeField}/>
         <AddField change={this.handleChange}/>
@@ -69,6 +71,6 @@ export class AppContainer extends Component {
         {this.state.type === "checkbox" && <CheckBoxCreator addField={this.addField} type={this.state.type}/>}
         {this.state.type === "radio" && <RadioButtonCreator addField={this.addField} type={this.state.type}/>}
       </div>
-    )
+    ) :  <WelcomeContainer ready={()=>this.setState({ready: true})} />
   }
 }
