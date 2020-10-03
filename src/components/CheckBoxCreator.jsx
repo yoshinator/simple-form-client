@@ -84,20 +84,15 @@ export class CheckBoxCreator extends Component {
     return (
       <div>
         <h4>Preview</h4>
-        <p>{this.state.category} (For grouping purposes. Not displayed on actual form)</p>
+        <p>
+          {this.state.category} (For grouping purposes. Not displayed on actual
+          form)
+        </p>
         <p>{this.state.question}</p>
         {this.options()}
         <SimpleSelector handleChange={this.handleChange} />
         <form onSubmit={this.handleSubmit}>
           {this.addClass()}
-          <label htmlFor="question">Question</label>
-          <input
-            type="text"
-            name="question"
-            id="question"
-            value={this.state.question}
-            onChange={this.handleChange}
-          />
 
           <label htmlFor="option-category">
             Option category value (states, interest, etc...)
@@ -110,20 +105,29 @@ export class CheckBoxCreator extends Component {
             onChange={this.handleChange}
           />
 
-          <label htmlFor="option-display">Display Value</label>
+          <label htmlFor="question">Question</label>
+          <input
+            type="text"
+            name="question"
+            id="question"
+            value={this.state.question}
+            onChange={this.handleChange}
+          />
+
+          <label htmlFor="display-value">Display Value</label>
           <input
             type="text"
             name="displayValue"
-            id="option-display"
+            id="display-value"
             value={this.state.displayValue}
             onChange={this.handleChange}
           />
 
-          <label htmlFor="option-value">Value</label>
+          <label htmlFor="value">Value</label>
           <input
             type="text"
             name="value"
-            id="option-valule"
+            id="value"
             value={this.state.value}
             onChange={this.handleChange}
           />
