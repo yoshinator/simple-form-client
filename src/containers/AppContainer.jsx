@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import {AddField} from '../components/AddField';
-import { InputTextFieldCreator } from '../components/InputTextFieldCreator';
-import { DropDownCreator } from '../components/DropDownCreator';
 import { DisplayFormContainer } from './DisplayFormContainer';
-import { CheckBoxCreator } from '../components/CheckBoxCreator';
-import { RadioButtonCreator } from '../components/RadioButtonCreator';
+import {AddField} from '../components/AddField';
+import { InputTextFieldCreator } from '../components/field_creators/InputTextFieldCreator';
+import { DropDownCreator } from '../components/field_creators/DropDownCreator';
+import { CheckBoxCreator } from '../components/field_creators/CheckBoxCreator';
+import { RadioButtonCreator } from '../components/field_creators/RadioButtonCreator';
 
 export class AppContainer extends Component {
   constructor(props){
