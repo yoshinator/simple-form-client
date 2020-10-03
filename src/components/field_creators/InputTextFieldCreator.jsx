@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SimpleSelector} from './SimpleSelector';
+import { SimpleSelector} from '../SimpleSelector';
 
 const initState = {
   simple: true,
