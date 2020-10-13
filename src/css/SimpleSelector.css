@@ -1,3 +1,9 @@
-.flex label{
+.simple-item label, .simple-item input{
   align-self: center;
+  margin-left: .5em;
+  margin-top: 0;
+}
+
+.simple-item input{
+  width: 2em;
 }

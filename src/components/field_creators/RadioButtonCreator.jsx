@@ -45,10 +45,10 @@ export class RadioButtonCreator extends Component {
   options(){
     return this.state.options.map(option => {
       return (
-        <React.Fragment key={option.uiid}>
+        <div className="flex checkbox" key={option.uiid}>
           <input type="radio" name={this.state.category} id={option.value} value={option.value}/>
           <label htmlFor={option.value}>{option.displayValue}</label>
-        </React.Fragment>
+        </div>
       )
     })
   }
@@ -94,7 +94,7 @@ export class RadioButtonCreator extends Component {
             displayed on form)
           </p>
           <p>{this.state.question}</p>
-          <div className="flex">
+          <div className="flex checkboxes">
             {this.options()}
           </div>
         </div>

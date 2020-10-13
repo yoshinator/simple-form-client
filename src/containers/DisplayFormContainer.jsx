@@ -12,7 +12,7 @@ export function DisplayFormContainer(props){
   function displayCheckBoxes(field){
     return field.options.map(opt => {
       return (
-        <React.Fragment key={opt.uiid}>
+        <div className="flex checkbox" key={opt.uiid}>
           <input
             type="checkbox"
             name={field.category}
@@ -20,7 +20,7 @@ export function DisplayFormContainer(props){
             value={opt.value}
           />
           <label htmlFor={opt.value}>{opt.displayValue}</label>
-        </React.Fragment>
+        </div >
       );
     })
   }
@@ -28,7 +28,7 @@ export function DisplayFormContainer(props){
   function displayRadioButtons(field){
     return field.options.map(opt => {
       return (
-        <React.Fragment key={opt.uiid}>
+        <div className="flex checkbox" key={opt.uiid}>
           <input 
             type="radio" 
             name={field.category} 
@@ -36,7 +36,7 @@ export function DisplayFormContainer(props){
             value={opt.value} 
           />
         <label htmlFor={opt.displayValue.toLowerCase()}>{opt.displayValue}</label>
-        </React.Fragment>
+        </div>
       )
     })
   }
@@ -48,11 +48,11 @@ export function DisplayFormContainer(props){
           <div key={field.uiid}  className={field.class}>
             <label>{field.label}</label>
             <input
+              type="text"
               value={field.value}
               placeholder={field.placeholder}
-              readOnly
             ></input>
-            <span className="remove-field" onClick={()=>props.removeField(field.uiid)}>X</span>
+            <span className="remove-field" onClick={()=>props.removeField(field.uiid)}>delete</span>
           </div>
         );
       }else if (field.type === "text"){
@@ -65,7 +65,7 @@ export function DisplayFormContainer(props){
               value={field.value}
               placeholder={field.placeholder}
             ></textarea>
-            <span className="remove-field" onClick={()=>props.removeField(field.uiid)}>X</span>
+            <span className="remove-field" onClick={()=>props.removeField(field.uiid)}>delete</span>
           </div>
         );
       }else if(field.type === "dropdown" ){
@@ -73,23 +73,27 @@ export function DisplayFormContainer(props){
           <div key={field.uiid} className={field.class}>
             <label>{field.label}</label>
             <select>{displayDropDown(field)}</select>
-            <span className="remove-field" onClick={() => props.removeField(field.uiid)}>X</span>
+            <span className="remove-field" onClick={() => props.removeField(field.uiid)}>delete</span>
           </div>
         );
       }else if (field.type === "checkbox" ){
         return (
           <div key={field.uiid} className={`${field.class} checkradio-group`}>
             <p>{field.question}</p>
-            {displayCheckBoxes(field)}
-            <span className="remove-field" onClick={() => props.removeField(field.uiid)}>X</span>
+            <div className="checkboxes">
+              {displayCheckBoxes(field)}
+            </div>
+            <span className="remove-field" onClick={() => props.removeField(field.uiid)}>delete</span>
           </div>
         );
       }else if (field.type === "radio"){
         return (
           <div key={field.uiid} className={`${field.class} checkradio-group`}>
             <p>{field.question}</p>
-            {displayRadioButtons(field)}
-            <span className="remove-field" onClick={() => props.removeField(field.uiid)}>X</span>
+            <div className="flex checkboxes">
+              {displayRadioButtons(field)}
+            </div>
+            <span className="remove-field" onClick={() => props.removeField(field.uiid)}>delete</span>
           </div>
         )
       }

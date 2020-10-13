@@ -60,10 +60,10 @@ export class CheckBoxCreator extends Component {
   options() {
       return this.state.options.map(option => {
         return (
-          <React.Fragment key={option.uiid}>
+          <div className="flex checkbox" key={option.uiid}>
             <input type="checkbox" name={this.state.category} id={option.value} value={option.value}/>
             <label htmlFor={option.value}>{option.displayValue}</label>
-          </React.Fragment>
+          </div>
         )
       })
   }
@@ -89,7 +89,7 @@ export class CheckBoxCreator extends Component {
             form)
           </p>
           <p>{this.state.question}</p>
-          <div className="flex">
+          <div className="flex checkboxes">
             {this.options()}
           </div>
         </div>

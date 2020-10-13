@@ -69,6 +69,7 @@ export class DropDownCreator extends Component {
         <>
           <label htmlFor="class">Class</label>
           <input
+            type="text"
             value={this.state.class}
             onChange={this.handleChange}
             name="class"

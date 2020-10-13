@@ -38,9 +38,11 @@ input{
 }
 input[type="text"], input[type="textarea"], input[type="button"], input[type="submit"]{
 min-width: 100%;
+display: block;
 }
 textarea {
   min-width: 100%;
+  font-size: 1.2em;
 }
 select {
   height: 2.3em;
@@ -57,11 +59,6 @@ select {
 form * {
   display: block;
   margin: .5em auto;
-}
-
-input[type="radio"]{
-  margin-top: .3em;
-  display: inline;
 }
 
 input[type="submit"], button{
@@ -86,4 +83,23 @@ input[type="submit"]:hover, button:hover{
 .preview {
   border: 1px dashed black;
   margin: 1em 0;
+}
+
+
+
+/* CHECK-RADIO PREVIEW / CHECK-RADIO  CREATOR */
+.checkboxes {
+  flex-direction: column;
+  margin-left: .5em;
+}
+
+.checkbox{
+  align-items: center;
+}
+.checkbox input{
+  width: 2em;
+}
+.checkbox label{
+  margin-left: .5em;
+  font-size: 1.4em;
 }
