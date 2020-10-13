@@ -45,10 +45,10 @@ export class RadioButtonCreator extends Component {
   options(){
     return this.state.options.map(option => {
       return (
-        <div key={option.uuid}>
+        <React.Fragment key={option.uiid}>
           <input type="radio" name={this.state.category} id={option.value} value={option.value}/>
           <label htmlFor={option.value}>{option.displayValue}</label>
-        </div>
+        </React.Fragment>
       )
     })
   }
@@ -86,17 +86,20 @@ export class RadioButtonCreator extends Component {
 
   render() {
     return (
-      <div>
-        <h4>Preview</h4>
-        <p>
-          {this.state.category} (Required for grouping purposes only not
-          displayed on form)
-        </p>
-        <p>{this.state.question}</p>
-        {this.options()}
+      <div className="f-creator">
+        <div className="preview">
+          <h4>Radio Buttons Preview</h4>
+          <p>
+            {this.state.category} (Required for grouping purposes only not
+            displayed on form)
+          </p>
+          <p>{this.state.question}</p>
+          <div className="flex">
+            {this.options()}
+          </div>
+        </div>
         <SimpleSelector handleChange={this.handleChange} />
         <form onSubmit={this.handleSubmit}>
-          {this.addClass()}
 
           <label htmlFor="radio-category">Radio category value (sex, citizenship, etc...)</label>
           <input type="text" name="category" id="radio-category" value={this.state.category} onChange={this.handleChange}/>
@@ -127,7 +130,7 @@ export class RadioButtonCreator extends Component {
             value={this.state.value}
             onChange={this.handleChange}
           />
-
+          {this.addClass()}
           <input type="button" value="Add Radio Button" onClick={this.addOption}/>
           <input type="submit" value="Create Radio Buttons Field"/>
         </form>

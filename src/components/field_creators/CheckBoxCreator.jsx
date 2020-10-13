@@ -60,10 +60,10 @@ export class CheckBoxCreator extends Component {
   options() {
       return this.state.options.map(option => {
         return (
-          <div key={option.uiid}>
+          <React.Fragment key={option.uiid}>
             <input type="checkbox" name={this.state.category} id={option.value} value={option.value}/>
             <label htmlFor={option.value}>{option.displayValue}</label>
-          </div>
+          </React.Fragment>
         )
       })
   }
@@ -80,19 +80,21 @@ export class CheckBoxCreator extends Component {
   }
 
   render(){
-    console.log(this.state)
     return (
-      <div>
-        <h4>Preview</h4>
-        <p>
-          {this.state.category} (For grouping purposes. Not displayed on actual
-          form)
-        </p>
-        <p>{this.state.question}</p>
-        {this.options()}
+      <div className="f-creator">
+        <div className="preview">
+          <h4>Checkboxes Preview</h4>
+          <p>
+            {this.state.category} (For grouping purposes. Not displayed on actual
+            form)
+          </p>
+          <p>{this.state.question}</p>
+          <div className="flex">
+            {this.options()}
+          </div>
+        </div>
         <SimpleSelector handleChange={this.handleChange} />
         <form onSubmit={this.handleSubmit}>
-          {this.addClass()}
 
           <label htmlFor="option-category">
             Option category value (states, interest, etc...)
@@ -131,7 +133,7 @@ export class CheckBoxCreator extends Component {
             value={this.state.value}
             onChange={this.handleChange}
           />
-
+          {this.addClass()}
           <input type="button" value="Add Checkbox" onClick={this.addOption} />
           <input type="submit" value="Create Checkboxes" />
         </form>

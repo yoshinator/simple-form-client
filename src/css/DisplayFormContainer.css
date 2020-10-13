@@ -1,0 +1,38 @@
+.form-preview {
+  width: 99%;
+  margin: auto;
+  border: 1px dashed black;
+}
+
+.form-preview h2 {
+  font-size: 1.5em;
+  margin: .6em 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.checkradio-group {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.checkradio-group p {
+  flex: 0 0 100%;
+}
+
+.checkradio-group label, .checkradio-group input{
+  flex: 1 1 80px;
+  margin: auto;
+  word-wrap: break-word
+}
+
+
+.remove-field {
+  cursor: pointer;
+  transition: transform 1s ease-in;
+  display: inline-block;
+}
+
+.remove-field:hover {
+  transform: rotate(90deg);
+}

@@ -1,6 +1,5 @@
 import React from "react";
-import "./Reset.css";
-import "./App.css";
+import "./css/App.css";
 import { AppContainer } from "./containers/AppContainer";
 
 

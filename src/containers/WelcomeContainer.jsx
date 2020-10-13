@@ -1,4 +1,5 @@
 import React from 'react';
+import "../css/WelcomeContainer.css"
 export function WelcomeContainer(props){
   return (
     <div className="container welcome">

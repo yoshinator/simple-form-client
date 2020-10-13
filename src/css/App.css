@@ -1,12 +1,15 @@
 
-
+*{
+  box-sizing: inherit;
+}
 :root {
   box-sizing: border-box;
   font-size: calc(.8em + 1vw);
   text-align: center;
   line-height: 1.5;
-  background-color: lightblue;
+  background-color: rgb(242, 242, 230);
   --input-background: lightgreen;
+  --input-accent: rgb(247, 218, 125);
 }
 
 h1{
@@ -24,14 +27,20 @@ p{
 label{
   font-size: 1.2em;
   font-family: Arial, Helvetica, sans-serif;
+  text-transform: capitalize;
 }
 
 input{
   height: 2.3em;
-  width: 100%;
   font-size: 1.2em;
   border: none;
   margin: 0;
+}
+input[type="text"], input[type="textarea"], input[type="button"], input[type="submit"]{
+min-width: 100%;
+}
+textarea {
+  min-width: 100%;
 }
 select {
   height: 2.3em;
@@ -52,35 +61,29 @@ form * {
 
 input[type="radio"]{
   margin-top: .3em;
-  width: 20%;
   display: inline;
 }
+
+input[type="submit"], button{
+  background-color: var(--input-background, lightgreen);
+}
+
+input[type="submit"]:hover, button:hover{
+  background-color: var(--input-accent,  rgb(247, 218, 125));
+}
+
 
 .container {
   width: 90%;
   margin: auto;
 }
 
-.welcome h1 {
-  font-size: 3.1em;
+
+.flex {
+  display: flex;
 }
 
-.welcome p {
- font-size: 2.1em;
- margin-bottom: 1em;
+.preview {
+  border: 1px dashed black;
+  margin: 1em 0;
 }
-
-.welcome button {
-  height: 2.3em;
-  border: none;
-  font-size: 1.5em;
-  text-transform: capitalize;
-  padding: .5em;
-  transition: background-color .6s ease-out;
-}
-
-.welcome button:hover {
-  background-color: var(--input-background, lightgreen);
-  transition: background-color .6s ease-out;
-}
-

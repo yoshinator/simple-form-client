@@ -82,16 +82,25 @@ export class DropDownCreator extends Component {
 
   render() {
     return (
-      <div>
-        <h4>preview</h4>
-        <label>{this.state.label}</label>
-        {this.options()}
+      <div className="f-creator">
+        <div className="preview">
+          <h4>Dropdown Preview</h4>
+          <label>{this.state.label}</label>
+          {this.options()}
+        </div>
         <SimpleSelector handleChange={this.handleChange} />
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="drop-down-name">Label</label>
           <input type="text" id="drop-down-name" name="label" onChange={this.handleChange}></input>
-          {this.addClass()}
 
+          <label htmlFor="display-value">Display Value</label>
+          <input
+            type="text"
+            value={this.state.displayValue}
+            onChange={this.handleChange}
+            name="displayValue"
+          />
+          
           <label htmlFor="option-value">Value</label>
           <input
             type="text"
@@ -100,13 +109,8 @@ export class DropDownCreator extends Component {
             name="value"
             id="option-value"
           />
-          <label htmlFor="display-value">Display Value</label>
-          <input
-            type="text"
-            value={this.state.displayValue}
-            onChange={this.handleChange}
-            name="displayValue"
-          />
+
+          {this.addClass()}
           <input
             type="button"
             onClick={this.addOption}

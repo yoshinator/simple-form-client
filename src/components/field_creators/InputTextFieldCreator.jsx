@@ -41,7 +41,7 @@ export class InputTextFieldCreator extends Component{
     if(this.props.type === "text" && !this.state.simple){
       return <>
         <label htmlFor="lines">Number of lines</label>
-        <input value={this.state.lines} onChange={this.handleChange} name="lines" id="lines"></input>
+        <input type="text" value={this.state.lines} onChange={this.handleChange} name="lines" id="lines"></input>
       </>
     }
     return null;
@@ -53,6 +53,7 @@ export class InputTextFieldCreator extends Component{
         <>
           <label htmlFor="class">class</label>
           <input
+            type="text"
             value={this.state.class}
             onChange={this.handleChange}
             name="class"
@@ -66,22 +67,24 @@ export class InputTextFieldCreator extends Component{
 
   render(){
     return (
-      <div>
+      <div className="f-creator">
         <SimpleSelector handleChange={this.handleChange}/>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="label">label</label>
-          <input  value={this.state.label} 
+          <input  type="text"
+                  value={this.state.label} 
                   name="label" 
                   onChange={this.handleChange} 
                   id="label">
           </input>
           <label htmlFor="value">default value</label>
-          <input  value={this.state.value} 
+          <input  type="text"
+                  value={this.state.value} 
                   onChange={this.handleChange} 
                   name="value" 
                   id="value"></input>
           <label htmlFor="placeholder">placeholder text</label>
-          <input value={this.state.placeholder} onChange={this.handleChange} name="placeholder" id="placeholder"></input>
+          <input type="text" value={this.state.placeholder} onChange={this.handleChange} name="placeholder" id="placeholder"></input>
           {this.addClass()}
           {this.lineNumbers()}
           <input type="submit" value="Add Field"/>
